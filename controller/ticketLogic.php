@@ -1,6 +1,18 @@
 <?php
 include("/xampp/htdocs/Sorteo/controller/tableLogic.php");
 
+/** Add Digits */
+function addDigits($number, $digits, $character="0")
+{
+    $number = strval($number);
+    $strlen = strlen($number);
+    $zeroStr = "";
+    for ($i = 0; $i < $digits - $strlen; $i++) {
+        $zeroStr = $zeroStr . $character;
+    }
+    return $zeroStr . $number;
+}
+
 /*Insert a ticket */
 function newTicket($alumno_id, $month_id)
 {

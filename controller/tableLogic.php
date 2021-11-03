@@ -23,19 +23,6 @@ function getArrayFromQuery($queryStr, $selectDB = 1)
     }
 }
 
-/** Return all the parent's id with them sons **/
-function getApoAlu()
-{
-    $queryStr = "SELECT 
-	            *
-            FROM
-	            alumno_apoderado aa1
-            WHERE
-	            aa1.apoderado_id <> -1
-	            AND
-	            aa1.apoderado_id <> -2";
-    return getArrayFromQuery($queryStr);
-}
 /** Return all the students */
 function getStudents()
 {
@@ -51,5 +38,20 @@ function getStudents()
                     WHERE alumno.estado=1
                     ORDER BY alumno.aa_id;
                     ";
+    return getArrayFromQuery($queryStr);
+}
+
+/**Return the data of a student */
+function getStudentData($id){
+    $queryStr=" SELECT alumno_id AS 'ID',
+                alumno_ap AS 'AP',
+                alumno_am AS 'AM',
+                alumno_nombres AS 'Nombres',
+                alumno_ndoc AS '# Documento',
+                grado.grado_descripcion AS 'Aula'
+                FROM alumno
+                JOIN aula_academica ON alumno.aa_id = aula_academica.aa_id
+                JOIN grado ON aula_academica.grado_id = grado.grado_id
+                WHERE alumno.alumno_id=".$id.";";
     return getArrayFromQuery($queryStr);
 }
