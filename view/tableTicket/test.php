@@ -1,8 +1,16 @@
 <?php
 include("/xampp/htdocs/Sorteo/controller/tableLogic.php");
+include("/xampp/htdocs/Sorteo/controller/ticketLogic.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
+<?php
+if (isset($_POST['addTicket'])) {
+    $is_alumno_id = $_POST['alumnoid'];
+    $is_month_id = $_POST['monthid'];
+    newTicket($is_alumno_id, $is_month_id);
+}
+?>
 
 <head>
     <meta charset="UTF-8">
@@ -18,32 +26,35 @@ include("/xampp/htdocs/Sorteo/controller/tableLogic.php");
         <?php
         $array = getStudents();
         ?>
-        <thead>
+        <thead class="thead-dark">
             <tr>
                 <?php foreach ($array[0] as $item => $value) { ?>
-                    <th> <?php echo $item ?></th>
+                    <th scope="col"> <?php echo $item ?></th>
                 <?php } ?>
-                <th>Octubre</th>
-                <th>Noviembre</th>
-                <th>Diciembre</th>
+                <th scope="col">Octubre</th>
+                <th scope="col">Noviembre</th>
+                <th scope="col">Diciembre</th>
             </tr>
-            <td>
         </thead>
         <tbody>
             <?php
             for ($i = 0; $i < count($array); $i++) { ?>
                 <tr>
                     <?php foreach ($array[$i] as $item => $value) {
-                    ?>
+                        if ($item == "ID") {
+                            $alumno_id = $value;
+                        } ?>
                         <td> <?php echo $value ?></td>
                     <?php } ?>
                     <?php for ($j = 0; $j < 3; $j++) { ?>
                         <td>
-                            <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>">
-                                <a class="btn btn-success" href="">Agregar Ticket</a>
+                            <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
+                                <input type="hidden" name="alumnoid" value="<?php echo $alumno_id; ?>">
+                                <input type="hidden" name="monthid" value="<?php echo $j + 10; ?>">
+                                <input type="submit" name="addTicket" class="btn btn-success" value="Agregar Ticket">
                             </form>
 
-                            <a class="btn btn-primary display-block" href="">Ver ticket</a>
+                            <a class="btn btn-primary" href="">Ver ticket</a>
                             <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>">
                                 <a class="btn btn-danger" href="">Quitar Ticket</a>
                             </form>

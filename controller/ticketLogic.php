@@ -1,8 +1,8 @@
 <?php
-include("/xampp/htdocs/Sorteo/controller/tableLogic.php");
+require_once("/xampp/htdocs/Sorteo/controller/tableLogic.php");
 
 /** Add Digits */
-function addDigits($number, $digits, $character="0")
+function addDigits($number, $digits, $character = "0")
 {
     $number = strval($number);
     $strlen = strlen($number);
@@ -18,6 +18,7 @@ function newTicket($alumno_id, $month_id)
 {
     global $conLottery;
     if (!existTicket($alumno_id, $month_id)) {
+        echo "funciona";
         $queryStr = " INSERT INTO 
                     `ticket` 
                     (`ticket_id`, `alumno_id`, `month_id`) 
@@ -36,13 +37,15 @@ function existTicket($alumno_id, $month_id)
                     FROM
                         ticket
                     WHERE
-                        alumno_id='" . $alumno_id . "'
+                        alumno_id=' . $alumno_id . '
                         AND
-                        month_id='" . $month_id . "'";
+                        month_id=' $month_id '";
         $query = mysqli_query($conLottery, $queryStr);
         if (is_null($query)) {
+            echo "falso";
             return false;
         } else {
+            echo "verdadero";
             return true;
         }
     } else {
