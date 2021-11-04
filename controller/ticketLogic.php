@@ -99,6 +99,8 @@ function deleteTicket($alumno_id, $month_id)
                         AND
                         month_id='" . $month_id . "'";
         $query = mysqli_query($conLottery, $queryStr);
+    }else{
+        return error_log("Ticket doesn't exist");
     }
 }
 

@@ -1,2 +1,2 @@
 <?php
-header("location: /sorteo/view/ticket.php");
+header("location: /sorteo/view/tableTicket/tableticket.php");

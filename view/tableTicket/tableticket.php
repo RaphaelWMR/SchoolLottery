@@ -22,12 +22,13 @@ if (isset($_POST['deleteTicket'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    
-    <title>Document</title>
+    <link rel="stylesheet" href="../styles.css">
+    <title>Tickets</title>
 </head>
 
 <body>
-    <h1>Tickets para el sorteo de navidad</h1>
+    <h1>Tickets para el sorteo de navidad <br></h1>
+
     <table class="table table-striped">
         <?php
         $array = getStudents();
@@ -76,13 +77,18 @@ if (isset($_POST['deleteTicket'])) {
                                 <input type="hidden" name="monthid" value="<?php echo $j + 10; ?>">
                                 <input type="submit" name="deleteTicket" class="btn btn-danger" value="Quitar Ticket" <?php echo $showTicketDisabled ?>>
                             </form>
+                            <form action="/Sorteo/view/tableTicket/deleteTicket.php" method="post">
+                                <input type="hidden" name="alumnoid" value="<?php echo $alumno_id; ?>">
+                                <input type="hidden" name="monthid" value="<?php echo $j + 10; ?>">
+                                <input type="submit" name="deleteTicket" class="btn btn-danger" <?php echo $showTicketDisabled ?> value="Detete Ticket">
+                            </form>
                         </td>
                     <?php } ?>
                 </tr>
             <?php } ?>
         </tbody>
     </table>
-
+    <script type="text/javascript" src="../script.js"></script>
 </body>
 
 </html>
