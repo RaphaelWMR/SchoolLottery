@@ -14,7 +14,7 @@ $ticket_number = $dataTicket['ticket_id'];
 $ticket_id = addDigits($ticket_number, 6);
 $month_number = $dataTicket['month_id'];
 $ticket_month = showMonth($month_number);
-$alumno_iddb= $dataTicket ['ID'];
+$alumno_iddb = $dataTicket['ID'];
 $alumno_ap = $dataTicket['AP'];
 $alumno_am = $dataTicket['AM'];
 $alumno_n = $dataTicket['Nombres'];
@@ -73,14 +73,16 @@ $alumno_aula = $dataTicket['Aula'];
                     </div>
                 </div>
             </div>
-            <div class="m-4">
-                <div class="d-flex">
-                    <a class="btn btn-primary " href="../tableTicket/tableticket.php">Cancelar</a>
+            <div class="m-0 row justify-content-center">
+                <div class="col-auto p-1 text-center d-flex justify-content-around">
+                    <a class="btn btn-primary m-5" href="../tableTicket/tableticket.php">Cancelar</a>
                     <form action="/Sorteo/view/tableTicket/tableTicket.php" method="post">
                         <input type="hidden" name="alumnoid" value="<?php echo $alumno_iddb; ?>">
                         <input type="hidden" name="monthid" value="<?php echo $month_number; ?>">
-                        <input type="submit" name="deleteTicket" class="btn btn-danger" value="Eliminar Ticket">
+                        <input type="submit" name="deleteTicket" class="btn btn-danger m-5" value="Eliminar Ticket">
                     </form>
+
+
                 </div>
             </div>
         </div>

@@ -34,11 +34,11 @@ if (isset($_POST['deleteTicket'])) {
         $array = getStudents();
         ?>
         <thead class="thead-dark">
-            <tr>
+            <tr class=" text-center">
                 <?php foreach ($array[0] as $item => $value) { ?>
                     <th scope="col"> <?php echo $item ?></th>
                 <?php } ?>
-                <th scope="col">Octubre</th>
+                <th scope="col text-center">Octubre</th>
                 <th scope="col">Noviembre</th>
                 <th scope="col">Diciembre</th>
             </tr>
@@ -62,26 +62,23 @@ if (isset($_POST['deleteTicket'])) {
                         }
                     ?>
                         <td class="<?php echo $backgroundColor ?>">
-                            <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
-                                <input type="hidden" name="alumnoid" value="<?php echo $alumno_id; ?>">
-                                <input type="hidden" name="monthid" value="<?php echo $j + 10; ?>">
-                                <input type="submit" name="addTicket" class="btn btn-success" value="Agregar Ticket">
-                            </form>
-                            <form action="/Sorteo/view/tableTicket/ticket.php" method="post">
-                                <input type="hidden" name="alumnoid" value="<?php echo $alumno_id; ?>">
-                                <input type="hidden" name="monthid" value="<?php echo $j + 10; ?>">
-                                <input type="submit" name="showTicket" class="btn btn-primary" <?php echo $showTicketDisabled ?> value="Ver ticket">
-                            </form>
-                            <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
-                                <input type="hidden" name="alumnoid" value="<?php echo $alumno_id; ?>">
-                                <input type="hidden" name="monthid" value="<?php echo $j + 10; ?>">
-                                <input type="submit" name="deleteTicket" class="btn btn-danger" value="Quitar Ticket" <?php echo $showTicketDisabled ?>>
-                            </form>
-                            <form action="/Sorteo/view/tableTicket/deleteTicket.php" method="post">
-                                <input type="hidden" name="alumnoid" value="<?php echo $alumno_id; ?>">
-                                <input type="hidden" name="monthid" value="<?php echo $j + 10; ?>">
-                                <input type="submit" name="deleteTicket" class="btn btn-danger" <?php echo $showTicketDisabled ?> value="Detete Ticket">
-                            </form>
+                            <div class=" text-center"> 
+                                <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
+                                    <input type="hidden" name="alumnoid" value="<?php echo $alumno_id; ?>">
+                                    <input type="hidden" name="monthid" value="<?php echo $j + 10; ?>">
+                                    <input type="submit" name="addTicket" class="btn btn-success" value="Agregar Ticket">
+                                </form>
+                                <form action="/Sorteo/view/tableTicket/ticket.php" method="post">
+                                    <input type="hidden" name="alumnoid" value="<?php echo $alumno_id; ?>">
+                                    <input type="hidden" name="monthid" value="<?php echo $j + 10; ?>">
+                                    <input type="submit" name="showTicket" class="btn btn-primary" <?php echo $showTicketDisabled ?> value="Ver ticket">
+                                </form>
+                                <form action="/Sorteo/view/tableTicket/deleteTicket.php" method="post">
+                                    <input type="hidden" name="alumnoid" value="<?php echo $alumno_id; ?>">
+                                    <input type="hidden" name="monthid" value="<?php echo $j + 10; ?>">
+                                    <input type="submit" name="deleteTicket" class="btn btn-danger" <?php echo $showTicketDisabled ?> value="Detete Ticket">
+                                </form>
+                            </div>
                         </td>
                     <?php } ?>
                 </tr>
