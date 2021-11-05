@@ -56,17 +56,19 @@ if (isset($_POST['deleteTicket'])) {
                     <?php for ($j = 0; $j < 3; $j++) {
                         $backgroundColor = "bg-warning";
                         $showTicketDisabled = "disabled";
+                        $addTicektDisabled = "";
                         if (existTicket($alumno_id, $j + 10)) {
                             $backgroundColor = "bg-info";
                             $showTicketDisabled = "";
+                            $addTicektDisabled = "disabled";
                         }
                     ?>
                         <td class="<?php echo $backgroundColor ?>">
-                            <div class=" text-center"> 
+                            <div class=" text-center">
                                 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
                                     <input type="hidden" name="alumnoid" value="<?php echo $alumno_id; ?>">
                                     <input type="hidden" name="monthid" value="<?php echo $j + 10; ?>">
-                                    <input type="submit" name="addTicket" class="btn btn-success" value="Agregar Ticket">
+                                    <input type="submit" name="addTicket" class="btn btn-success" value="Agregar Ticket" <?php echo $addTicektDisabled ?>>
                                 </form>
                                 <form action="/Sorteo/view/tableTicket/ticket.php" method="post">
                                     <input type="hidden" name="alumnoid" value="<?php echo $alumno_id; ?>">
