@@ -29,10 +29,10 @@ $alumno_aula = $dataTicket['Aula'];
 </head>
 
 <body>
-    <div class="container border border-secondary rounded-3 border-3">
+    <div class="container border border-secondary rounded-3 border-3 mt-5">
         <div class="row">
             <div class="col-3 text-center border-end border-secondary border-2">
-                <div class="img">
+                <div class="img pt-2">
                     <img src="../img/cabecera.png" class="img-fluid" alt="">
                 </div>
                 <div class="img">
@@ -52,7 +52,7 @@ $alumno_aula = $dataTicket['Aula'];
                 <p>N° DE IDENTIFICACIÓN: <?php echo $alumno_id ?></p>
                 <p>AULA: <?php echo $alumno_aula ?></p>
                 <hr class="new4">
-                <div class=" d-flex flex-row">
+                <div class=" d-flex flex-row mb-2">
                     <div class="img text-center ">
                         <img src="../img/cabecera.png" class="img-fluid " alt="">
                     </div>
