@@ -76,7 +76,7 @@ if (isset($_POST['deleteTicket'])) {
                                 <form action="/Sorteo/view/tableTicket/deleteTicket.php" method="post">
                                     <input type="hidden" name="alumnoid" value="<?php echo $alumno_id; ?>">
                                     <input type="hidden" name="monthid" value="<?php echo $j + 10; ?>">
-                                    <input type="submit" name="deleteTicket" class="btn btn-danger" <?php echo $showTicketDisabled ?> value="Detete Ticket">
+                                    <input type="submit" name="deleteTicket" class="btn btn-danger" <?php echo $showTicketDisabled ?> value="Eliminar Ticket">
                                 </form>
                             </div>
                         </td>
