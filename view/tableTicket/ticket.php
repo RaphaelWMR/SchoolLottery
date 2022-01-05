@@ -39,13 +39,13 @@ $alumno_aula = $dataTicket['Aula'];
                     <img src="../img/qr_img.png" class="img-fluid" alt="">
                 </div>
                 <h2><b>TICKET N° <?php echo $ticket_id ?></b></h2>
-                <p>Ticket del mes de <?php echo $ticket_month ?><br>Sorteo en vivo 2021<br>2 canastas navideñas<br>23 de diciembre<br>05:00 p.m.</p>
+                <p>Ticket del mes de <?php echo $ticket_month ?><br><b>Sorteo en vivo 2021</b><br><b>Premio a la puntualidad</b><br><b>2 canastas navideñas</b><br>22 de diciembre<br>05:00 p.m.</p>
             </div>
             <div class="col-8">
                 <h2>TICKET N°<?php echo $ticket_id ?></h2>
                 <p>Ticket del mes de <?php echo $ticket_month ?></p>
                 <hr class="new4">
-                <p><b>Sorteo 2021</b><br><b>2 canastas navideñas</b></p>
+                <p><b>Sorteo 2021</b><br><b>2 canastas navideñas - Premio a la puntualidad</b></p>
                 <p>IEP JEAN PIERRE BUCH</p>
                 <hr class="new4">
                 <p><?php echo $alumno_ap . " " . $alumno_am . "<br>" . $alumno_n ?></p>
